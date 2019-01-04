@@ -107,6 +107,13 @@ extern void iggCloseCurrentPopup(void);
 
 extern IggBool  iggIsItemHovered(int flags);
 
+extern IggBool iggColorEdit3(char const *label, float color[3], int flags);
+extern IggBool iggColorEdit4(char const *label, float color[4], int flags);
+extern IggBool iggColorPicker3(char const *label, float color[3], int flags);
+extern IggBool iggColorPicker4(char const *label, float color[4], int flags, float const *ref_color);
+extern IggBool iggColorButton(char const *desc_id, IggVec4 const *color, int flags, IggVec2 const *size);
+extern void iggSetColorEditOptions(int flags);
+
 #ifdef __cplusplus
 }
 #endif

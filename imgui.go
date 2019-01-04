@@ -638,3 +638,39 @@ func IsItemHoveredV(flags int) bool {
 func IsItemHovered() bool {
 	return IsItemHoveredV(HoveredFlagsDefault)
 }
+
+func ColorEdit3(label string, color *float32, flags int) bool {
+	labelArg, labelFin := wrapString(label)
+	defer labelFin()
+	return C.iggColorEdit3(labelArg, (*C.float)(color), C.int(flags)) != 0
+}
+
+func ColorEdit4(label string, color *float32, flags int) bool {
+	labelArg, labelFin := wrapString(label)
+	defer labelFin()
+	return C.iggColorEdit4(labelArg, (*C.float)(color), C.int(flags)) != 0
+}
+
+func ColorPicker3(label string, color *float32, flags int) bool {
+	labelArg, labelFin := wrapString(label)
+	defer labelFin()
+	return C.iggColorPicker3(labelArg, (*C.float)(color), C.int(flags)) != 0
+}
+
+func ColorPicker4(label string, color *float32, flags int, refColor *float32) bool {
+	labelArg, labelFin := wrapString(label)
+	defer labelFin()
+	return C.iggColorPicker4(labelArg, (*C.float)(color), C.int(flags), (*C.float)(refColor)) != 0
+}
+
+func ColorButton(id string, color Vec4, flags int, size Vec2) bool {
+	idArg, idFin := wrapString(id)
+	defer idFin()
+	colorArg, _ := color.wrapped()
+	sizeArg, _ := size.wrapped()
+	return C.iggColorButton(idArg, colorArg, C.int(flags), sizeArg) != 0
+}
+
+func SetColorEditOptions(flags int) {
+	C.iggSetColorEditOptions(C.int(flags))
+}

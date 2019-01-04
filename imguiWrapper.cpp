@@ -407,3 +407,37 @@ IggBool iggIsItemHovered(int flags)
 {
    return ImGui::IsItemHovered(flags) ? 1 : 0;
 }
+
+IggBool iggColorEdit3(char const *label, float color[3], int flags)
+{
+    return ImGui::ColorEdit3(label, color, flags) ? 1 : 0;
+}
+
+IggBool iggColorEdit4(char const *label, float color[4], int flags)
+{
+    return ImGui::ColorEdit4(label, color, flags) ? 1 : 0;
+}
+
+IggBool iggColorPicker3(char const *label, float color[3], int flags)
+{
+    return ImGui::ColorPicker3(label, color, flags) ? 1 : 0;
+}
+
+IggBool iggColorPicker4(char const *label, float color[4], int flags, float const *ref_color)
+{
+    return ImGui::ColorPicker4(label, color, flags, ref_color) ? 1 : 0;
+}
+
+IggBool iggColorButton(char const *desc_id, IggVec4 const *color, int flags, IggVec2 const *size)
+{
+   Vec4Wrapper colorArg(color);
+   Vec2Wrapper sizeArg(size);
+   return ImGui::ColorButton(desc_id, *colorArg, flags, *sizeArg) ? 1 : 0;
+}
+
+void iggSetColorEditOptions(int flags)
+{
+    ImGui::SetColorEditOptions(flags);
+}
+
+

@@ -440,4 +440,9 @@ void iggSetColorEditOptions(int flags)
     ImGui::SetColorEditOptions(flags);
 }
 
-
+void iggGetWindowSize(IggVec2 *out_size)
+{
+    ImVec2 size = ImGui::GetWindowSize();
+    out_size->x = size.x;
+    out_size->y = size.y;
+}

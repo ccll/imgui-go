@@ -674,3 +674,9 @@ func ColorButton(id string, color Vec4, flags int, size Vec2) bool {
 func SetColorEditOptions(flags int) {
 	C.iggSetColorEditOptions(C.int(flags))
 }
+
+func GetWindowSize() Vec2 {
+	size := C.IggVec2{0, 0}
+	C.iggGetWindowSize(&size)
+	return Vec2{X: float32(size.x), Y: float32(size.y)}
+}

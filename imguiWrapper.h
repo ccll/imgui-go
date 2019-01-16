@@ -114,6 +114,8 @@ extern IggBool iggColorPicker4(char const *label, float color[4], int flags, flo
 extern IggBool iggColorButton(char const *desc_id, IggVec4 const *color, int flags, IggVec2 const *size);
 extern void iggSetColorEditOptions(int flags);
 
+extern void iggGetWindowSize(IggVec2 *out_size);
+
 #ifdef __cplusplus
 }
 #endif
